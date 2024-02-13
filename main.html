@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Toggle Theme</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Swap</title>
+<style>
+    .day {
+        background-color: lightblue;
+    }
+    .night {
+        background-color: darkblue;
+        color: white;
+    }
+    .button_day {
+        background-color: lightgray;
+        color: black;
+    }
+    .button_night {
+        background-color: darkgray;
+        color: white;
+    }
+</style>
 </head>
 <body>
-  <div id="app" class="day">
+
+<div id="app" class="day">
     <p id="ptag">I am an AccioJob student, ready to become an awesome full stack developer.</p>
-    <button id="swap" class="button_day" onclick="swapTheme()">Toggle Theme</button>
-  </div>
-  <script src="script.js"></script>
+    <button id="swap" class="button_day" onclick="swapTheme()">Swap Theme</button>
+</div>
+
+<script>
+function swapTheme() {
+    var appDiv = document.getElementById("app");
+    var swapButton = document.getElementById("swap");
+    
+    if (appDiv.classList.contains("day")) {
+        appDiv.classList.remove("day");
+        appDiv.classList.add("night");
+        swapButton.classList.remove("button_day");
+        swapButton.classList.add("button_night");
+    } else {
+        appDiv.classList.remove("night");
+        appDiv.classList.add("day");
+        swapButton.classList.remove("button_night");
+        swapButton.classList.add("button_day");
+    }
+}
+</script>
+
 </body>
 </html>
